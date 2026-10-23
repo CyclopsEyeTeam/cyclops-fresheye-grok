@@ -1,0 +1,4 @@
+#!/bin/bash
+set -euo pipefail
+HERE="$(readlink -f "$0")"
+exec node "$(dirname "$HERE")/../scripts/fresheye-ctl.js" "$@"

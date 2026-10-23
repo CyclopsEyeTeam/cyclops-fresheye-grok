@@ -1,0 +1,8 @@
+{
+  "name": "cyclops-fresheye",
+  "version": "0.1.0",
+  "description": "Same model, fresh context. A separate Grok process reviews with this conversation's history and memory withheld. Includes a Chroma projection look that sends pictures, not the builder's verdict.",
+  "author": {
+    "name": "Cyclops Eye Team"
+  }
+}
