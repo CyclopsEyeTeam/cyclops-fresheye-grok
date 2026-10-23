@@ -98,6 +98,7 @@ test('a FreshEye mark stacks on Rift and stays off an ordinary session', () => {
   const marked = buildGrokStatusLine(store, '82625d8f-02d7-4cab-9793-35cb9e498198', '');
   assert.match(marked, /◎ FreshEye · Fresh Context \(82625d8f-02d7\)/);
   assert.match(marked, /original 01a16aae-1ae4 kept/);
+  assert.match(marked, /\x1b\[1;38;2;255;186;64m/);
   assert.equal(buildGrokStatusLine(store, 'someone-else', ''), '');
   assert.match(buildGrokStatusLine({ pairs: {} }, '82625d8f-02d7-4cab-9793-35cb9e498198', 'fresheye'), /◎ FreshEye/);
 

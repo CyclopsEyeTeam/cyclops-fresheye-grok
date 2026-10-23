@@ -268,6 +268,10 @@ export function withStore(storePath, fn) {
   }
 }
 
+/** Warm amber, so the mark is not the same grey as the shortcut row or Rift's cool colours. */
+const FRESHEYE_MARK = '\x1b[1;38;2;255;186;64m';
+const FRESHEYE_RESET = '\x1b[0m';
+
 /** One status row. Rift already uses the line budget, so this stays a single mark. */
 export function buildGrokStatusLine(store, sessionId, agentName = '') {
   const id = String(sessionId || '').trim();
@@ -277,7 +281,7 @@ export function buildGrokStatusLine(store, sessionId, agentName = '') {
   if (!pair && agent !== 'fresheye') return '';
   const origin = String(pair?.originId || '').trim();
   const originMark = origin.includes('-') ? ` · original ${shortId(origin)} kept` : '';
-  return `◎ FreshEye · Fresh Context (${shortId(id)})${originMark}`;
+  return `${FRESHEYE_MARK}◎ FreshEye · Fresh Context (${shortId(id)})${originMark}${FRESHEYE_RESET}`;
 }
 
 export function readSessionAgentName(cwd, sessionId, homeDir = os.homedir()) {
